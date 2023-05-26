@@ -13,7 +13,7 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Index</title>
@@ -47,7 +47,7 @@
             </tbody>
         </table>
         <br><br>
-        <a href="views/formatoNuevoEstudiante">AGREGAR NUEVO ESTUDIANTE</a>
+        <a href="views/formatoNuevoEstudiante.php">AGREGAR NUEVO ESTUDIANTE</a>
     </main>
     
 </body>

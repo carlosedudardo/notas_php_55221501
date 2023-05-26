@@ -5,16 +5,16 @@
     require '../controllers/baseController.php';
     require '../controllers/estudiantesController.php';
 
-    use estudiante\Estudainte;
+    use estudiante\Estudiante;
     use estudianteController\EstudiantesController;
 
     $code = empty($_GET['codigo'])?'' : $_GET['codigo'];
     $titulo = 'Registrar Estudiante';
-    $urlAction = "accionRegistrarEstudiante";
+    $urlAction = "accionRegistrarEstudiante.php";
     $estudiante = new Estudiante();
     if(!empty($code)){
         $titulo = 'Modificar Estudiante';
-        $urlAction = "accionModificarEstudiante";
+        $urlAction = "accionModificarEstudiante.php";
         $estudianteController = new EstudianteController();
         $estudiante = $usuarioController->readRow($code);
     }
@@ -22,12 +22,13 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <head>
         <meta charset="UTF-8">
         <title>NUEVO ESTUDIANTE</title>
     </head>
     <body>
+        <h1><?php echo $titulo; ?></h1>
         <form action="<?php echo $urlAction;?>" method="post">
             <label>
                 <span>Codigo:</span>

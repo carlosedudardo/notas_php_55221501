@@ -8,6 +8,17 @@ use estudiante\Estudiante;
 
 class EstudiantesController extends BaseController{
     function create($estudiante){
+        $sql = 'insert into estudiantes ';
+        $sql .= '(codigo,nombres,apellidos) values ';
+        $sql .= '(';
+        $sql .= '"' . $estudiante->getCodigo() . '",';
+        $sql .= '"' . $estudiante->getNombre() . '",';
+        $sql .= '"' . $estudiante->getApellido() . '" ';
+        $sql .= ')';
+        $conexiondb = new ConexionDbController();
+        $resultadoSQL = $conexiondb->execSQL($sql);
+        $conexiondb->close();
+        return $resultadoSQL;
 
     }
 
