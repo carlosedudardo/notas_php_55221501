@@ -1,4 +1,14 @@
 <?php
+    require 'models/estudiante.php';
+    require 'controllers/conexionDbController.php';
+    require 'controllers/baseController.php';
+    require 'controllers/estudiantesController.php';
+
+    use estudianteController\EstudiantesController;
+
+    $estudianteController = new EstudiantesController();
+
+    $estudiantes = $estudianteController->read();
 
 ?>
 
@@ -12,8 +22,32 @@
     <main>
         <h1>LISTA DE LOS ESTUDIANTES</h1>
         <table>
-            
+            <thead>
+                <tr>
+                    <th>Codigo</th>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php
+                foreach ($estudiantes as $estudiante) {
+                    echo '<tr>';
+                    echo '  <td>' . $estudiante->getCodigo() . '</td>';
+                    echo '  <td>' . $estudiante->getNombre() . '</td>';
+                    echo '  <td>' . $estudiante->getApellido() . '</td>';
+                    echo '  <td>';
+                    echo '      <a>modificar</a>';
+                    echo '      <a>borrar</a>';
+                    echo '      <a>Notas</a>';
+                    echo '  </td>';
+                    echo '</tr>';
+                }
+                ?>
+            </tbody>
         </table>
+        <br><br>
+        <a>AGREGAR NUEVO ESTUDIANTE</a>
     </main>
     
 </body>
