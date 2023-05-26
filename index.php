@@ -47,7 +47,7 @@
             </tbody>
         </table>
         <br><br>
-        <a>AGREGAR NUEVO ESTUDIANTE</a>
+        <a href="views/formatoNuevoEstudiante">AGREGAR NUEVO ESTUDIANTE</a>
     </main>
     
 </body>
