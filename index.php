@@ -38,8 +38,8 @@
                     echo '  <td>' . $estudiante->getApellido() . '</td>';
                     echo '  <td>';
                     echo '      <a href="views/formatoNuevoEstudiante.php?codigo=' . $estudiante->getCodigo() . '">modificar</a>';
-                    echo '      <a href="views/accionEliminarEstudiante.php?codigo=' . $estudiante->getCodigo() . '">borrar</a>';
-                    echo '      <a>Notas</a>';
+                    echo '      <a href="views/accionEliminarEstudiante.php?codigo=' . $estudiante->getCodigo() . '">eliminar</a>';
+                    echo '      <a href="actividades.php?codigo=' . $estudiante->getCodigo() . '&nombre=' . $estudiante->getNombre() . '&apellido=' . $estudiante->getApellido() . '">Notas</a>';
                     echo '  </td>';
                     echo '</tr>';
                 }
