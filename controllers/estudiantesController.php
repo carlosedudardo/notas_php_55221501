@@ -66,7 +66,12 @@ class EstudiantesController extends BaseController{
 
     }
 
-    function delete($id){
-
+    function delete($codigo){
+        $sql = 'delete from estudiantes where codigo=' . $codigo;
+        $conexiondb = new ConexionDbController();
+        $resultadoSQL = $conexiondb->execSQL($sql);
+        $conexiondb->close();
+        return $resultadoSQL;
+    
     }
 }
