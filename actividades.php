@@ -60,8 +60,8 @@
                         echo '<td>' . $actividad->getDescripcion() . '</td>';
                         echo '<td>' . $actividad->getNota() . '</td>';
                         echo '<td>';
-                        echo '      <a>Modificar</a>';
-                        echo '      <a>Eliminar</a>';
+                        echo '      <a  href="views/formatoNuevaActividad.php?id=' . $actividad->getId() . ' &codigo=' . $codigoEstudiante . '&nombre=' . $nombreEstudiante . '&apellido=' . $apellidoEstudiante . '">Modificar</a>';
+                        echo '      <a  href="views/accionEliminarActividad.php?id=' . $actividad->getId() . '&codigo=' . $codigoEstudiante . '&nombre=' . $nombreEstudiante . '&apellido=' . $apellidoEstudiante . '">Eliminar</a>';
                         echo '</td>';
                         echo '</tr>';
                         $contadorNotas ++;

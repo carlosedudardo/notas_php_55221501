@@ -6,7 +6,7 @@
     require '../controllers/actividadesController.php';
 
     use actividad\Actividad;
-    use actividadController\ActividadController;
+    use actividadController\ActividadesController;
 
     $id = empty($_GET['id'])?'' : $_GET['id'];
     $actividad = new Actividad();
@@ -16,9 +16,9 @@
         $nombreEstudiante = $_GET['nombre'];
         $apellidoEstudiante = $_GET['apellido'];
         $titulo = 'Modificar Actividad';
-        $urlAction = "action_modif_act.php";
-        $actividadController = new ActividadController();
-        $actividad = $actividadController->readRow($id);
+        $urlAction = "accionModificarActividad.php";
+        $actividadesController = new ActividadesController();
+        $actividad = $actividadesController->readRow($id);
     }else{ 
         $codigoEstudiante = $_POST['codigo'];
         $nombreEstudiante = $_POST['nombre'];

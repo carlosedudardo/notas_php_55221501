@@ -41,14 +41,37 @@ class ActividadesController extends ActividadBaseController
     }
 
     function readRow($id){
-
+        $sql = 'SELECT * FROM actividades';
+            $sql .= ' WHERE id=' .$id;
+            $conexiondb = new ConexionDbController();
+            $resultadoSQL = $conexiondb->execSQL($sql);
+            $actividad = new Actividad();
+           while($registro = $resultadoSQL -> fetch_assoc()){
+                $actividad ->setId($id);
+                $actividad -> setDescripcion($registro['descripcion']);
+                $actividad -> setNota($registro['nota']);
+                $actividad -> setCodigoEstudiante($registro['codigoEstudiante']);
+           } 
+           $conexiondb->close();
+           return $actividad;
     }
 
     function update($id, $actividad){
-
+        $sql = 'UPDATE actividades SET ';
+        $sql .= 'descripcion = "' . $actividad->getDescripcion() . '",';
+        $sql .= 'nota = ' . $actividad->getNota() . ' ';
+        $sql .= 'WHERE id=' . $id;
+        $conexiondb = new ConexionDbController();
+        $resultadoSQL = $conexiondb->execSQL($sql);
+        $conexiondb->close();
+        return $resultadoSQL;
     }
 
     function delete($id){
-
+        $sql = 'DELETE FROM actividades WHERE id=' . $id;
+        $conexiondb = new ConexionDbController();
+        $resultadoSQL = $conexiondb->execSQL($sql);
+        $conexiondb->close();
+        return $resultadoSQL;
     }
 }
