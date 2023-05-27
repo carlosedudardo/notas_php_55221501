@@ -19,7 +19,6 @@ class EstudiantesController extends BaseController{
         $resultadoSQL = $conexiondb->execSQL($sql);
         $conexiondb->close();
         return $resultadoSQL;
-
     }
 
     function read(){
@@ -38,11 +37,32 @@ class EstudiantesController extends BaseController{
        return $estudiantes;
     }
 
-    function readRow($id){
+    function readRow($codigo){
+        $sql = 'select * from estudiantes';
+        $sql .= ' WHERE codigo=' .$codigo;
+        $conexiondb = new ConexionDbController();
+        $resultadoSQL = $conexiondb->execSQL($sql);
+        $estudiante = new Estudiante();
+       while($registro = $resultadoSQL -> fetch_assoc()){
+            $estudiante -> setCodigo($registro['codigo']);
+            $estudiante -> setNombre($registro['nombres']);
+            $estudiante -> setApellido($registro['apellidos']);
+       } 
+       $conexiondb->close();
+       return $estudiante;
 
     }
 
-    function update($id, $actividad){
+    function update($codigo, $estudiante){
+        $sql = 'update estudiantes set ';
+        $sql .= 'codigo = ' .$estudiante->getCodigo() . ',';
+        $sql .= 'nombres = "' . $estudiante->getNombre() . '",';
+        $sql .= 'apellidos = "' . $estudiante->getapellido() . '" ';
+        $sql .= 'WHERE codigo = ' .$codigo.';';
+        $conexiondb = new ConexionDbController();
+        $resultadoSQL = $conexiondb->execSQL($sql);
+        $conexiondb->close();
+        return $resultadoSQL;
 
     }
 

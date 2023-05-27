@@ -15,8 +15,8 @@
     if(!empty($code)){
         $titulo = 'Modificar Estudiante';
         $urlAction = "accionModificarEstudiante.php";
-        $estudianteController = new EstudianteController();
-        $estudiante = $usuarioController->readRow($code);
+        $estudianteController = new EstudiantesController();
+        $estudiante = $estudianteController->readRow($code);
     }
 
 ?>
@@ -45,7 +45,7 @@
                 <input type="text" name="apellido" value="<?php echo $estudiante->getApellido(); ?>" required>
             </label>
             <br>
-            <button>Guardar</button>
+            <button type="submit">Guardar</button>
         </form>
     
     </body>

@@ -37,7 +37,7 @@
                     echo '  <td>' . $estudiante->getNombre() . '</td>';
                     echo '  <td>' . $estudiante->getApellido() . '</td>';
                     echo '  <td>';
-                    echo '      <a>modificar</a>';
+                    echo '      <a href="views/formatoNuevoEstudiante.php?codigo=' . $estudiante->getCodigo() . '">modificar</a>';
                     echo '      <a>borrar</a>';
                     echo '      <a>Notas</a>';
                     echo '  </td>';

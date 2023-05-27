@@ -28,7 +28,7 @@
         }
 
         public function setApellido($value){
-            $this->Apellido = $value;
+            $this->apellido = $value;
         }
     }
 
